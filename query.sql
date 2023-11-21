@@ -103,3 +103,11 @@ JOIN `videogames` ON software_houses.id = videogames.software_house_id
 JOIN `award_videogame` ON videogames.id = award_videogame.videogame_id 
 JOIN `awards` ON award_videogame.award_id = awards.id;
 
+
+6. SELECT DISTINCT `categories.name`
+FROM `reviews`
+JOIN `videogames` ON reviews.id = videogames.id
+JOIN `category_videogame` ON videogames.id = category_videogame.videogame_id
+JOIN `categories` ON category_videogame.category_id = categories.id
+WHERE reviews.rating IN (4, 5);
+-- sbagliata
