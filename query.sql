@@ -1,3 +1,5 @@
+-- SELECT
+
 1. SELECT * FROM `software_houses`;
 
 2. SELECT * FROM `players` WHERE `city` = 'Rogahnland';
@@ -17,3 +19,19 @@
 9. SELECT * FROM `videogames` WHERE YEAR(release_date) = 2020;
 
 10. SELECT DISTINCT `videogame_id` FROM `reviews` WHERE `rating` = 5 ORDER BY `reviews`.`videogame_id` ASC;
+
+
+
+-- GROUP BY
+
+1. SELECT `country`, COUNT(*) as numero_software_house FROM `software_houses` GROUP BY `country`;
+
+2. SELECT `videogame_id`, COUNT(*) FROM `reviews` GROUP BY `videogame_id`;
+
+3. SELECT `videogame_id`, COUNT(*) FROM `pegi_label_videogame` GROUP BY `videogame_id`;
+
+4. SELECT YEAR(`release_date`), COUNT(*) FROM `videogames` GROUP BY YEAR(`release_date`);
+
+5. SELECT `device_id`, COUNT(*) FROM `device_videogame` GROUP BY `device_id`;
+
+6. SELECT `videogame_id`, AVG(`rating`) as media_recensioni FROM `reviews` GROUP BY `videogame_id` ORDER BY media_recensioni DESC;
