@@ -77,12 +77,29 @@ ORDER BY media_recensioni DESC;
 
 1. SELECT DISTINCT players.*
 FROM `players`
-JOIN `reviews` ON players.id = reviews.player_id;
+JOIN `reviews` ON `players.id` = `reviews.player_id`;
 
 2. SELECT DISTINCT videogames.*
 FROM `tournaments`
 JOIN `tournament_videogame` ON tournaments.id = `tournament_videogame`.`tournament_id`
-JOIN `videogames` ON `tournament_videogame`.`videogame_id` = videogames.id
+JOIN `videogames` ON `tournament_videogame`.`videogame_id` = `videogames.id`
 WHERE YEAR(tournaments.year) = 2016;
 
+3. SELECT DISTINCT videogames.*
+FROM `tournaments`
+JOIN `tournament_videogame` ON `tournaments.id` = `tournament_videogame.tournament_id`
+JOIN `videogames` ON t`ournament_videogame.videogame_id` = `videogames.id`
+WHERE YEAR(tournaments.year) = 2016;
+
+4. SELECT DISTINCT software_houses.*
+FROM `software_houses`
+JOIN `videogames` ON `software_houses.id` = `videogames.software_house_id`
+WHERE YEAR(videogames.release_date) > 2020;
+
+
+5. SELECT software_houses.name, awards.name 
+FROM `software_houses` 
+JOIN `videogames` ON software_houses.id = videogames.software_house_id 
+JOIN `award_videogame` ON videogames.id = award_videogame.videogame_id 
+JOIN `awards` ON award_videogame.award_id = awards.id;
 
